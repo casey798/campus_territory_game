@@ -11,7 +11,7 @@ class MapRepository {
         const val MAP_HEIGHT_PX = 1024
     }
 
-    private val mapBitmap: ImageBitmap by lazy {
+    private val mapBitmapCache: ImageBitmap by lazy {
         PlaceholderMapGenerator.generate(MAP_WIDTH_PX, MAP_HEIGHT_PX)
     }
 
@@ -26,7 +26,7 @@ class MapRepository {
 
     private val playerSpawn = WorldPoint(780f, 500f)
 
-    fun getMapBitmap(): ImageBitmap = mapBitmap
+    fun getMapBitmap(): ImageBitmap = mapBitmapCache
 
     fun getMapDimensions(): Pair<Int, Int> = MAP_WIDTH_PX to MAP_HEIGHT_PX
 
